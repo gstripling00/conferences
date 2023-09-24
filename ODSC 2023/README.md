@@ -1,6 +1,6 @@
 *This is not an official Google product*
 
-# low-code-ai
+# Low-code-ai
 This repository has been compiled as an easy-to-access resource for the code presented in the main text of the book. Note that for this reason, many comments and code explanations are found in the text of the book rather than the code here. 
 
 If you find any errors or other issues with the code shared here, please create an Issue for this repository. For any errors or issues in the book, please submit errata at the [O'Reilly website](http://oreilly.com/catalog/0636920860877/errata?_gl=1*1beeaae*_ga*MTcwOTUxOTQ3OS4xNjc2NzUwNTU0*_ga_092EL089CH*MTY5NDk3MTk1MS41LjAuMTY5NDk3MTk1Ny41NC4wLjA.). Thank you!
