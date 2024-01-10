@@ -1,0 +1,700 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/gstripling00/conferences/blob/main/02_03_nlp_extras_2ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WEecnZ4wc4n0"
+      },
+      "source": [
+        "# I. Text Segmentation\n",
+        "\n",
+        "Text Segmentation is the process of transforming text into meaningful units. These units can be words, sentences or different topics."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "cLdwfmpyc4n2"
+      },
+      "outputs": [],
+      "source": [
+        "import nltk\n",
+        "from nltk.tokenize import sent_tokenize, word_tokenize\n",
+        "\n",
+        "text = \"CODE is founded by Mr. Bachem. Studying at CODE will be unlike any other higher education experience. Our intensive, interdisciplinary bachelor’s programs are designed to dramatically improve the way you work and to prepare you for the reality of tomorrow’s workplace.\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fFPkk_G0c4n3",
+        "outputId": "3789c0c7-867d-4526-d67c-8caee21ce379"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "['CODE is founded by Mr. Bachem.', 'Studying at CODE will be unlike any other higher education experience.', 'Our intensive, interdisciplinary bachelor’s programs are designed to dramatically improve the way you work and to prepare you for the reality of tomorrow’s workplace.']\n"
+          ]
+        }
+      ],
+      "source": [
+        "# split it into sentences\n",
+        "print(sent_tokenize(text))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xXIwOqhRc4n5",
+        "outputId": "3286ad1a-c72e-4245-bbff-4ab8a6739df0"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "['CODE', 'is', 'founded', 'by', 'Mr.', 'Bachem', '.', 'Studying', 'at', 'CODE', 'will', 'be', 'unlike', 'any', 'other', 'higher', 'education', 'experience', '.', 'Our', 'intensive', ',', 'interdisciplinary', 'bachelor', '’', 's', 'programs', 'are', 'designed', 'to', 'dramatically', 'improve', 'the', 'way', 'you', 'work', 'and', 'to', 'prepare', 'you', 'for', 'the', 'reality', 'of', 'tomorrow', '’', 's', 'workplace', '.']\n"
+          ]
+        }
+      ],
+      "source": [
+        "# split into words\n",
+        "print(word_tokenize(text))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "PQIy1Ibcc4n5"
+      },
+      "outputs": [],
+      "source": [
+        "from nltk.tokenize import sent_tokenize, word_tokenize\n",
+        "\n",
+        "text = \"beneath the extraodrinary staircase...\"\n",
+        "\n",
+        "tokenize= sent_tokenize(text)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TckjxCwfc4n5"
+      },
+      "source": [
+        "# II. Stop Words & Word Segmentation\n",
+        "Also part of Natural Language are words that are basically useless, which are referred to as \"stop words\". Since we dont want that these words extend our processing time or take up unnecessary space in our database, we will remove them."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EOw4XnCUc4n6",
+        "outputId": "36650f02-e304-4f8e-ad8f-da29ce6cb7b0"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "[nltk_data] Downloading package stopwords to\n",
+            "[nltk_data]     /Users/niklas/nltk_data...\n",
+            "[nltk_data]   Package stopwords is already up-to-date!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Removing stop words from text\n",
+        "\n",
+        "\n",
+        "nltk.download('stopwords')\n",
+        "from nltk.corpus import stopwords\n",
+        "\n",
+        "from nltk.tokenize import word_tokenize\n",
+        "\n",
+        "text = \"\"\"CODE is founded by Mr. Bachem. Studying at CODE will be unlike\n",
+        "any other higher education experience. Our intensive, interdisciplinary\n",
+        "bachelor’s programs are designed to dramatically improve the way you work\n",
+        "and to prepare you for the reality of tomorrow’s workplace.\"\"\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "3Ebl7Z77c4n6"
+      },
+      "outputs": [],
+      "source": [
+        "# defining the stop words we will use\n",
+        "stop_words = set(stopwords.words('english'))\n",
+        "\n",
+        "tokens = word_tokenize(text)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "oMcTBr6cc4n6"
+      },
+      "outputs": [],
+      "source": [
+        "# filter the text for stop words\n",
+        "filtered_sentence = [w for w in tokens if not w in stop_words]\n",
+        "filtered_sentence = []\n",
+        "\n",
+        "for w in tokens:\n",
+        "    if w not in stop_words:\n",
+        "        filtered_sentence.append(w)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Yrkp07o1c4n7",
+        "outputId": "699062ef-6395-49f0-db4c-055f54ee9eab"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "['CODE', 'is', 'founded', 'by', 'Mr.', 'Bachem', '.', 'Studying', 'at', 'CODE', 'will', 'be', 'unlike', 'any', 'other', 'higher', 'education', 'experience', '.', 'Our', 'intensive', ',', 'interdisciplinary', 'bachelor', '’', 's', 'programs', 'are', 'designed', 'to', 'dramatically', 'improve', 'the', 'way', 'you', 'work', 'and', 'to', 'prepare', 'you', 'for', 'the', 'reality', 'of', 'tomorrow', '’', 's', 'workplace', '.']\n"
+          ]
+        }
+      ],
+      "source": [
+        "# show just the tokenized text\n",
+        "print(tokens)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EsouVjsTc4n7",
+        "outputId": "76a0e8d3-2651-48e0-caf0-eaeb22d762c6"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "['CODE', 'founded', 'Mr.', 'Bachem', '.', 'Studying', 'CODE', 'unlike', 'higher', 'education', 'experience', '.', 'Our', 'intensive', ',', 'interdisciplinary', 'bachelor', '’', 'programs', 'designed', 'dramatically', 'improve', 'way', 'work', 'prepare', 'reality', 'tomorrow', '’', 'workplace', '.']\n"
+          ]
+        }
+      ],
+      "source": [
+        "# show filtered tokenized text\n",
+        "print(filtered_sentence)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "d-_U_fVnc4n7"
+      },
+      "source": [
+        "# III. Stemming"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Q2ZNusj-c4n8"
+      },
+      "outputs": [],
+      "source": [
+        "from nltk.stem import PorterStemmer\n",
+        "from nltk.tokenize import sent_tokenize, word_tokenize\n",
+        "\n",
+        "ps = PorterStemmer()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "rKNoey24c4n8"
+      },
+      "source": [
+        "#### Stemming single words:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BxJvm75dc4n8"
+      },
+      "outputs": [],
+      "source": [
+        "example_words = [\"ride\",\"riding\", \"rider\"]"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0VuEPd5Mc4n8",
+        "outputId": "5106f31f-0174-42e7-818e-66fff43b3e29"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "ride\n",
+            "ride\n",
+            "rider\n"
+          ]
+        }
+      ],
+      "source": [
+        "for w in example_words:\n",
+        "    print(ps.stem(w))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iUT_riiBc4n8"
+      },
+      "source": [
+        "#### Stemming sentences:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "d1mjpq_Ic4n8"
+      },
+      "outputs": [],
+      "source": [
+        "new_text = \"\"\"CODE is a newly founded private university of applied sciences that is embedded into the vibrant\n",
+        "network of Berlin's digital economy.\"\"\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "26u7aFK6c4n9",
+        "outputId": "0e584731-f066-42d2-a608-4ff43b383fc0"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "code\n",
+            "is\n",
+            "a\n",
+            "newli\n",
+            "found\n",
+            "privat\n",
+            "univers\n",
+            "of\n",
+            "appli\n",
+            "scienc\n",
+            "that\n",
+            "is\n",
+            "embed\n",
+            "into\n",
+            "the\n",
+            "vibrant\n",
+            "network\n",
+            "of\n",
+            "berlin\n",
+            "'s\n",
+            "digit\n",
+            "economi\n",
+            ".\n"
+          ]
+        }
+      ],
+      "source": [
+        "words = word_tokenize(new_text)\n",
+        "\n",
+        "for w in words:\n",
+        "    print(ps.stem(w))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "collapsed": true,
+        "id": "qSu6mvvfc4n9"
+      },
+      "source": [
+        "# IV. Parsing (Speech Tagging & Chunking)\n",
+        "\n",
+        "## 1. Speech Tagging\n",
+        "\n",
+        "Speech Tagging in NLTK is the process of labeling words in a sentence as nouns, adjectives, verbs and more."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jxvnqe-hc4n9"
+      },
+      "source": [
+        "Fortunately, NLTK provides us with a sentence tokenizer called the \"PunktSentenceTokenizer\", which is a un-supervised ML algorithm that can be trained on any text corpus you wish to."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "6GPgpUNSc4n9"
+      },
+      "outputs": [],
+      "source": [
+        "import nltk\n",
+        "from nltk.tokenize import PunktSentenceTokenizer"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "F6II4jukc4n9",
+        "outputId": "0827265f-f4cf-4360-cc50-03c11ca3eb44"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "[nltk_data] Downloading package gutenberg to\n",
+            "[nltk_data]     /Users/niklas/nltk_data...\n",
+            "[nltk_data]   Package gutenberg is already up-to-date!\n",
+            "[nltk_data] Downloading package averaged_perceptron_tagger to\n",
+            "[nltk_data]     /Users/niklas/nltk_data...\n",
+            "[nltk_data]   Package averaged_perceptron_tagger is already up-to-\n",
+            "[nltk_data]       date!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# using novels by chesterton\n",
+        "nltk.download('gutenberg')\n",
+        "nltk.download('averaged_perceptron_tagger')\n",
+        "from nltk.corpus import gutenberg\n",
+        "test = gutenberg.raw(\"chesterton-ball.txt\")\n",
+        "train = gutenberg.raw(\"chesterton-brown.txt\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "j1EDAPRJc4n9"
+      },
+      "outputs": [],
+      "source": [
+        "# train tokenizer\n",
+        "custom_sent_tokenizer = PunktSentenceTokenizer(train)\n",
+        "# tokenize chesterton ball\n",
+        "tokenized = custom_sent_tokenizer.tokenize(test)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "JaEVe3v8c4n-",
+        "outputId": "97d7db19-e62a-4f3e-f301-5e820fa49785"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "[('[', 'IN'), ('The', 'DT'), ('Ball', 'NNP'), ('and', 'CC'), ('The', 'DT'), ('Cross', 'NNP'), ('by', 'IN'), ('G.K', 'NNP'), ('.', '.')]\n",
+            "[('Chesterton', 'NNP'), ('1909', 'CD'), (']', 'NN'), ('I', 'PRP'), ('.', '.')]\n",
+            "[('A', 'DT'), ('DISCUSSION', 'NNP'), ('SOMEWHAT', 'NNP'), ('IN', 'NNP'), ('THE', 'NNP'), ('AIR', 'NNP'), ('The', 'DT'), ('flying', 'VBG'), ('ship', 'NN'), ('of', 'IN'), ('Professor', 'NNP'), ('Lucifer', 'NNP'), ('sang', 'VBD'), ('through', 'IN'), ('the', 'DT'), ('skies', 'NNS'), ('like', 'IN'), ('a', 'DT'), ('silver', 'NN'), ('arrow', 'NN'), (';', ':'), ('the', 'DT'), ('bleak', 'JJ'), ('white', 'JJ'), ('steel', 'NN'), ('of', 'IN'), ('it', 'PRP'), (',', ','), ('gleaming', 'VBG'), ('in', 'IN'), ('the', 'DT'), ('bleak', 'JJ'), ('blue', 'JJ'), ('emptiness', 'NN'), ('of', 'IN'), ('the', 'DT'), ('evening', 'NN'), ('.', '.')]\n",
+            "[('That', 'IN'), ('it', 'PRP'), ('was', 'VBD'), ('far', 'RB'), ('above', 'IN'), ('the', 'DT'), ('earth', 'NN'), ('was', 'VBD'), ('no', 'DT'), ('expression', 'NN'), ('for', 'IN'), ('it', 'PRP'), (';', ':'), ('to', 'TO'), ('the', 'DT'), ('two', 'CD'), ('men', 'NNS'), ('in', 'IN'), ('it', 'PRP'), (',', ','), ('it', 'PRP'), ('seemed', 'VBD'), ('to', 'TO'), ('be', 'VB'), ('far', 'RB'), ('above', 'IN'), ('the', 'DT'), ('stars', 'NNS'), ('.', '.')]\n",
+            "[('The', 'DT'), ('professor', 'NN'), ('had', 'VBD'), ('himself', 'PRP'), ('invented', 'VBN'), ('the', 'DT'), ('flying', 'VBG'), ('machine', 'NN'), (',', ','), ('and', 'CC'), ('had', 'VBD'), ('also', 'RB'), ('invented', 'VBN'), ('nearly', 'RB'), ('everything', 'NN'), ('in', 'IN'), ('it', 'PRP'), ('.', '.')]\n",
+            "[('Every', 'DT'), ('sort', 'NN'), ('of', 'IN'), ('tool', 'NN'), ('or', 'CC'), ('apparatus', 'NN'), ('had', 'VBD'), (',', ','), ('in', 'IN'), ('consequence', 'NN'), (',', ','), ('to', 'TO'), ('the', 'DT'), ('full', 'JJ'), (',', ','), ('that', 'IN'), ('fantastic', 'JJ'), ('and', 'CC'), ('distorted', 'JJ'), ('look', 'NN'), ('which', 'WDT'), ('belongs', 'VBZ'), ('to', 'TO'), ('the', 'DT'), ('miracles', 'NNS'), ('of', 'IN'), ('science', 'NN'), ('.', '.')]\n",
+            "[('For', 'IN'), ('the', 'DT'), ('world', 'NN'), ('of', 'IN'), ('science', 'NN'), ('and', 'CC'), ('evolution', 'NN'), ('is', 'VBZ'), ('far', 'RB'), ('more', 'JJR'), ('nameless', 'JJ'), ('and', 'CC'), ('elusive', 'JJ'), ('and', 'CC'), ('like', 'IN'), ('a', 'DT'), ('dream', 'NN'), ('than', 'IN'), ('the', 'DT'), ('world', 'NN'), ('of', 'IN'), ('poetry', 'NN'), ('and', 'CC'), ('religion', 'NN'), (';', ':'), ('since', 'IN'), ('in', 'IN'), ('the', 'DT'), ('latter', 'JJ'), ('images', 'NNS'), ('and', 'CC'), ('ideas', 'NNS'), ('remain', 'VBP'), ('themselves', 'PRP'), ('eternally', 'RB'), (',', ','), ('while', 'IN'), ('it', 'PRP'), ('is', 'VBZ'), ('the', 'DT'), ('whole', 'JJ'), ('idea', 'NN'), ('of', 'IN'), ('evolution', 'NN'), ('that', 'IN'), ('identities', 'VBZ'), ('melt', 'FW'), ('into', 'IN'), ('each', 'DT'), ('other', 'JJ'), ('as', 'IN'), ('they', 'PRP'), ('do', 'VBP'), ('in', 'IN'), ('a', 'DT'), ('nightmare', 'NN'), ('.', '.')]\n"
+          ]
+        }
+      ],
+      "source": [
+        "def tag_text():\n",
+        "    try:\n",
+        "        for i in tokenized[:7]:\n",
+        "            actual_words = nltk.word_tokenize(i)\n",
+        "            tagged = nltk.pos_tag(actual_words)\n",
+        "            print(tagged)\n",
+        "\n",
+        "    except Exception as e:\n",
+        "        print(str(e))\n",
+        "\n",
+        "tag_text()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j6ZVaL42c4n-"
+      },
+      "source": [
+        "## 2. Chunking Text\n",
+        "\n",
+        "Chunking is the process of grouping words into more meaningful junks than just the speech tags. This can be things such as \"noun phrases\" or \"verb phrases\". With chunking you can get a parse tree.\n",
+        "\n",
+        "We will search for chunks that correspond to individual noun phrases."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "MKM69NoHc4n-"
+      },
+      "outputs": [],
+      "source": [
+        "# using pre-tagged text out of simplicity\n",
+        "text = [(\"the\", \"DT\"), (\"huge\", \"JJ\"), (\"german\", \"JJ\"), (\"Rottweiler\", \"NN\"),\n",
+        "        (\"barked\", \"VBD\"), (\"at\", \"IN\"),  (\"the\", \"DT\"), (\"cat\", \"NN\")]"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "VhEpFN4Uc4n_",
+        "outputId": "4e666849-4a92-4a56-882f-383ec3112de8"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "(S\n",
+            "  (NP the/DT huge/JJ german/JJ Rottweiler/NN)\n",
+            "  barked/VBD\n",
+            "  at/IN\n",
+            "  (NP the/DT cat/NN))\n"
+          ]
+        }
+      ],
+      "source": [
+        "# define a noun-phrase as:\n",
+        "# np = determiner + adjective + singular noun\n",
+        "grammar = \"NP: {<DT>?<JJ>*<NN>}\"\n",
+        "\n",
+        "# apply grammar to regexparser\n",
+        "cp = nltk.RegexpParser(grammar)\n",
+        "\n",
+        "# do the chunking\n",
+        "result = cp.parse(text)\n",
+        "print(result)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MuKt3by7c4n_"
+      },
+      "source": [
+        "# V. Sentiment Analysis using Keras\n",
+        "\n",
+        "Blogpost:\n",
+        "https://towardsdatascience.com/how-to-build-a-neural-network-with-keras-e8faa33d0ae4"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "OIJLNXp6c4n_",
+        "outputId": "3c061d71-1091-44db-dfc3-2046afdc2f9d"
+      },
+      "outputs": [
+        {
+          "name": "stderr",
+          "output_type": "stream",
+          "text": [
+            "/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.\n",
+            "  from ._conv import register_converters as _register_converters\n",
+            "Using TensorFlow backend.\n"
+          ]
+        },
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "_________________________________________________________________\n",
+            "Layer (type)                 Output Shape              Param #   \n",
+            "=================================================================\n",
+            "dense_1 (Dense)              (None, 50)                500050    \n",
+            "_________________________________________________________________\n",
+            "dropout_1 (Dropout)          (None, 50)                0         \n",
+            "_________________________________________________________________\n",
+            "dense_2 (Dense)              (None, 50)                2550      \n",
+            "_________________________________________________________________\n",
+            "dropout_2 (Dropout)          (None, 50)                0         \n",
+            "_________________________________________________________________\n",
+            "dense_3 (Dense)              (None, 50)                2550      \n",
+            "_________________________________________________________________\n",
+            "dense_4 (Dense)              (None, 1)                 51        \n",
+            "=================================================================\n",
+            "Total params: 505,201\n",
+            "Trainable params: 505,201\n",
+            "Non-trainable params: 0\n",
+            "_________________________________________________________________\n",
+            "Train on 40000 samples, validate on 10000 samples\n",
+            "Epoch 1/2\n",
+            "40000/40000 [==============================] - 6s 157us/step - loss: 0.4049 - acc: 0.8213 - val_loss: 0.2632 - val_acc: 0.8940\n",
+            "Epoch 2/2\n",
+            "40000/40000 [==============================] - 5s 134us/step - loss: 0.2116 - acc: 0.9202 - val_loss: 0.2600 - val_acc: 0.8940\n",
+            "Test-Accuracy: 0.8940000042319298\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "from keras.utils import to_categorical\n",
+        "from keras import models\n",
+        "from keras import layers\n",
+        "from keras.datasets import imdb\n",
+        "(training_data, training_targets), (testing_data, testing_targets) = imdb.load_data(num_words=10000)\n",
+        "data = np.concatenate((training_data, testing_data), axis=0)\n",
+        "targets = np.concatenate((training_targets, testing_targets), axis=0)\n",
+        "def vectorize(sequences, dimension = 10000):\n",
+        " results = np.zeros((len(sequences), dimension))\n",
+        " for i, sequence in enumerate(sequences):\n",
+        "  results[i, sequence] = 1\n",
+        " return results\n",
+        "\n",
+        "data = vectorize(data)\n",
+        "targets = np.array(targets).astype(\"float32\")\n",
+        "test_x = data[:10000]\n",
+        "test_y = targets[:10000]\n",
+        "train_x = data[10000:]\n",
+        "train_y = targets[10000:]\n",
+        "model = models.Sequential()\n",
+        "# Input - Layer\n",
+        "model.add(layers.Dense(50, activation = \"relu\", input_shape=(10000, )))\n",
+        "# Hidden - Layers\n",
+        "model.add(layers.Dropout(0.3, noise_shape=None, seed=None))\n",
+        "model.add(layers.Dense(50, activation = \"relu\"))\n",
+        "model.add(layers.Dropout(0.2, noise_shape=None, seed=None))\n",
+        "model.add(layers.Dense(50, activation = \"relu\"))\n",
+        "# Output- Layer\n",
+        "model.add(layers.Dense(1, activation = \"sigmoid\"))\n",
+        "model.summary()\n",
+        "# compiling the model\n",
+        "model.compile(\n",
+        " optimizer = \"adam\",\n",
+        " loss = \"binary_crossentropy\",\n",
+        " metrics = [\"accuracy\"]\n",
+        ")\n",
+        "results = model.fit(\n",
+        " train_x, train_y,\n",
+        " epochs= 2,\n",
+        " batch_size = 500,\n",
+        " validation_data = (test_x, test_y)\n",
+        ")\n",
+        "print(\"Test-Accuracy:\", np.mean(results.history[\"val_acc\"]))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Ncjs0ko1c4n_"
+      },
+      "source": [
+        "### Example of a IMDB Review:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "cZKlyF0Zc4oA"
+      },
+      "outputs": [],
+      "source": [
+        "from keras.datasets import imdb\n",
+        "(training_data, training_targets), (testing_data, testing_targets) = imdb.load_data(num_words=10000)\n",
+        "data = np.concatenate((training_data, testing_data), axis=0)\n",
+        "targets = np.concatenate((training_targets, testing_targets), axis=0)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_GI9d3hKc4oA",
+        "outputId": "9b0a31be-16ab-4a12-b75c-a15a14616d30"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "# this film was just brilliant casting location scenery story direction everyone's really suited the part they played and you could just imagine being there robert # is an amazing actor and now the same being director # father came from the same scottish island as myself so i loved the fact there was a real connection with this film the witty remarks throughout the film were great it was just brilliant so much that i bought the film as soon as it was released for # and would recommend it to everyone to watch and the fly fishing was amazing really cried at the end it was so sad and you know what they say if you cry at a film it must have been good and this definitely was also # to the two little boy's that played the # of norman and paul they were just brilliant children are often left out of the # list i think because the stars that play them all grown up are such a big profile for the whole film but these children are amazing and should be praised for what they have done don't you think the whole story was so lovely because it was true and was someone's life after all that was shared with us all\n",
+            "Label: 1 , which means positive.\n"
+          ]
+        }
+      ],
+      "source": [
+        "index = imdb.get_word_index()\n",
+        "reverse_index = dict([(value, key) for (key, value) in index.items()])\n",
+        "decoded = \" \".join( [reverse_index.get(i - 3, \"#\") for i in data[0]] )\n",
+        "print(decoded)\n",
+        "print(\"Label:\", targets[0], \", which means positive.\")"
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.6.5"
+    },
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
