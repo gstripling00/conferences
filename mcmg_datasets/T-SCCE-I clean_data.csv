@@ -1,0 +1,93 @@
+feedback_date,feedback_csat,feedback_csat_explanation,feedback_csat_lab_quality,feedback_csat_lecture_quality,feedback_csat_open_feedback,feedback_csat_materials,feedback_csat_lab_lecture_balance
+2024-03-14,1,null,1,null,Skin zone Greg,null,null
+2024-03-29,4,"The UI for SCC is not very user friendly or intuitive and thus it was difficult to search for what links or buttons I needed to click. The training could help by providing video clips of how to locate the button or link in question, for example in one of the findings the link I needed to edit a firewall rule was well below the fold on the lightbox UI.",5,4,"I learn best by doing, so I would have preferred the entire education be primarily within a lab environment so that I reinforced what I was doing by actually executing tasks. Perhaps allow an option for learners so we can specify the degree to which we want our education/experience to be via lab interaction (100% for me).",null,4
+2024-03-30,5,satisfied with the knowledge,null,null,null,null,null
+2024-04-01,5,null,4,null,null,null,null
+2024-04-02,4,NA,4,4,NA,null,3
+2024-04-02,5,amazing learning experience,5,5,each one teach one like Google team,null,3
+2024-04-04,4,"Overall this class was good, but it was missing the full SecOps experience. It would have been nice if in the labs I coukd have gone to cases in SOAR and take a peek at that experience.",5,5,null,null,3
+2024-04-11,5,null,5,4,I suggest there be more labs.,null,4
+2024-04-14,5,null,5,5,null,null,4
+2024-04-15,4,There are some parts of the training that are still reference SCC-E previous versions,4,5,It would be great to have more advanced labs to get more familiar with the console,null,3
+2024-04-15,5,null,5,5,null,null,3
+2024-04-16,5,null,5,5,null,null,4
+2024-04-16,5,null,2,5,labs should actually provide hands-on experience in scc enterprise not premium,null,4
+2024-04-16,4,null,5,4,null,null,3
+2024-04-18,5,null,5,4,null,null,3
+2024-04-18,5,null,5,5,null,null,3
+2024-04-19,3,null,null,3,null,null,3
+2024-04-19,3,null,4,2,null,null,4
+2024-04-22,5,null,4,4,null,null,3
+2024-04-29,5,vary satisfied. instruction is clear,5,5,more task,null,3
+2024-04-29,4,null,5,4,null,null,3
+2024-05-02,4,"1 complaint about a misleading question: in ""Quiz: SCC Enterprise Fundamentals"" there is a question like ""Your company develops a new cloud-based application. You want to ensure maximum security during development and after the app is live. Which of these Security Command Center Enterprise features would directly support this goal? (Pick two)""  <--- this question only had 1 correct answer (""Protects infrastructure as code to establish consistent security rules during development.""), so to 100% the quiz I had to ignore the hint to pick 2 anwsers as any other answer was flagged incorrect",5,5,null,null,3
+2024-05-03,3,really sales oriented,3,3,was looking for a deeper dive into SCC,null,3
+2024-05-06,4,null,5,5,null,null,3
+2024-05-08,5,null,5,5,null,null,3
+2024-05-10,5,null,5,5,null,null,null
+2024-05-13,5,null,5,5,null,null,3
+2024-05-13,4,great course,4,4,null,null,3
+2024-05-15,5,null,4,4,null,null,3
+2024-05-21,5,null,3,3,null,null,3
+2024-05-22,4,null,5,4,null,null,5
+2024-05-23,4,null,3,5,null,null,3
+2024-05-24,5,null,5,5,null,null,3
+2024-05-28,5,"nicely laid out and i liked the comparisons to buildings, cities etc
+Wasn't too long so could consume and complete in a couple of hours.",4,5,a good course for a platform CE to get a reasonable understanindg of SCCE,null,3
+2024-05-28,3,null,null,null,null,null,3
+2024-05-29,3,null,4,4,null,null,3
+2024-05-30,4,The content is satisfactory towards explaining SCC,5,5,null,null,3
+2024-06-05,3,null,3,3,null,null,3
+2024-06-05,5,the lab it's perfect,4,5,"For this type of topic, in my opinion, reading is clearer rather than videos, interspersed with quizzes, which help you remember things better",null,3
+2024-06-07,4,More text than expected,null,4,null,null,5
+2024-06-12,3,null,4,4,null,null,4
+2024-06-13,5,The hands-on session was great. The quizzes were good. The content - especially outlining the fundamentals which most skip over was also great. Great job in framing the problem before diving into detail.,5,5,"The lab is very long in terms of steps. Would be great to break that up a little - but in terms of time - it's not that long, so I guess it's ok. Another lab or 2 might be nice.",null,3
+2024-06-18,4,null,4,4,null,null,3
+2024-06-18,4,"Course was OK, but I would like to see more practice labs.",5,5,null,null,4
+2024-06-19,5,null,5,5,null,null,3
+2024-06-19,5,null,null,null,null,null,null
+2024-06-20,4,null,5,5,null,null,4
+2024-06-20,4,null,4,4,More Labs please,null,5
+2024-06-25,3,null,3,3,null,null,3
+2024-06-30,5,null,3,3,null,null,3
+2024-06-30,4,It was annoing to use links and switch to other pages or youtube videos,5,5,null,null,3
+2024-07-02,5,null,5,5,N/AQ,null,3
+2024-07-02,5,null,5,5,null,null,3
+2024-07-05,5,Good explaintion and good lab,5,5,null,null,3
+2024-07-07,5,nice one,5,5,thx,null,3
+2024-07-08,5,null,null,null,null,null,null
+2024-07-09,5,null,3,3,null,null,3
+2024-07-09,4,null,5,4,null,null,5
+2024-07-10,4,it will be best if we can get hands on experience to the system directly,4,5,null,null,4
+2024-07-16,5,nice course,5,5,"1.The course material was comprehensive and up-to-date.
+2.Real-world examples and case studies were very useful.
+3.The theoretical concepts were well-explained and easy to understand.",null,3
+2024-07-16,5,null,null,null,null,null,null
+2024-07-17,3,null,4,3,null,null,3
+2024-07-20,4,Great,5,5,Great,null,3
+2024-07-22,4,null,5,5,null,null,4
+2024-07-23,5,The content was great.,5,5,null,null,3
+2024-07-23,3,null,4,4,null,null,3
+2024-07-26,4,null,3,3,null,null,3
+2024-07-26,4,better to give us a slide deck for reference.,4,4,null,null,4
+2024-07-28,5,null,5,5,e,null,3
+2024-08-09,4,The course covers the core concepts well.,3,3,null,null,3
+2024-08-15,4,null,4,4,null,null,4
+2024-08-15,4,I enjoyed the training,3,4,null,null,4
+2024-08-16,4,null,5,4,null,null,3
+2024-08-21,null,null,3,3,null,null,3
+2024-08-21,5,"Great analogy for SCC to a real world scenario, good explanation and a nice lab to get some hands on experience",5,5,null,null,3
+2024-08-22,5,NA,5,5,NA,null,3
+2024-08-22,5,null,null,null,null,null,null
+2024-08-22,4,null,4,5,null,null,3
+2024-08-24,4,"The user interface experience could be annoying, many clicks todisplay content and is confuse how to navigate or track progress.  Using yor web browser interfaces is complex. Not improving",4,4,Web useless interfaces y tracking style. Also working on labs could be challenging disconnecting,null,3
+2024-08-27,4,null,4,4,null,null,3
+2024-08-28,5,null,5,5,null,null,1
+2024-08-28,4,null,null,null,null,null,null
+2024-08-30,5,null,5,5,null,null,3
+2024-09-05,5,null,null,5,null,null,3
+2024-09-08,4,N.A,4,4,N.A.,null,3
+2024-09-09,4,"Give me a basic background, I hope it will give other courses in the future to dive deep in their funcionatilites",2,4,More labs to gain hands-on experience.,null,3
+2024-09-15,4,null,4,4,null,null,3
+2024-09-17,3,null,3,3,null,null,3
+2024-10-03,3,null,4,4,null,null,3
